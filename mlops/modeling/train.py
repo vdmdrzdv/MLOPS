@@ -23,6 +23,7 @@ def main(
         if i == 5:
             logger.info("Something happened for iteration 5.")
     logger.success("Modeling training complete.")
+    print("Успех! Модель обучилась")
     # -----------------------------------------
 
 
