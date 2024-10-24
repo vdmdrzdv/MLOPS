@@ -1,6 +1,8 @@
 awscli
 black
 flake8
+mypy
+pre-commit
 isort
 loguru
 mkdocs

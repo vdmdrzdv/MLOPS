@@ -1,1 +1,1 @@
-from mlops import config  # noqa: F401
+from mlops import config

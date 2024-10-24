@@ -1,10 +1,34 @@
-# mlops
+# MLOPS
 
 <a target="_blank" href="https://cookiecutter-data-science.drivendata.org/">
     <img src="https://img.shields.io/badge/CCDS-Project%20template-328F97?logo=cookiecutter" />
 </a>
 
+## Description
+
 A project for the first steps in learning mlops.
+
+## Getting started
+
+To create an environment, install dependencies, and pre-commit hooks, run the command in bash:
+
+```bash
+bash setup.sh
+```
+
+## Useful commands
+
+### Launching the linter
+
+```bash
+flake8 mlops
+```
+
+### Launching a type checker
+
+```bash
+mypy mlops
+```
 
 ## Project Organization
 
