@@ -18,6 +18,8 @@ bash setup.sh
 
 ## Useful commands
 
+Make sure that the virtual environment is activated in bash.
+
 ### Launching the linter
 
 ```bash

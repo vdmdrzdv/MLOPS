@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # Проверка наличия Python
-if command -v python3 &> /dev/null; then
-    PYTHON_COMMAND=python3
-elif command -v python &> /dev/null; then
-    PYTHON_COMMAND=python
+if command -v python &> /dev/null; then
+    PYTHON_COMMAND="python"
+elif command -v python3 &> /dev/null; then
+    PYTHON_COMMAND="python3"
 else
     echo "Python не установлен"
     exit 1
@@ -19,7 +19,7 @@ fi
 VENV_DIR=".venv"
 if [ ! -d "$VENV_DIR" ]; then
     echo "Создание виртуального окружения..."
-    $PYTHON_COMMAND -m venv "$VENV_DIR"
+    $PYTHON_COMMAND -m venv $VENV_DIR
 else
     echo "Виртуальное окружение уже существует"
 fi
@@ -33,7 +33,6 @@ fi
 
 # Установка зависимостей
 echo "Установка зависимостей..."
-pip install --upgrade pip
 pip install -r requirements.txt
 
 # Установка pre-commit хуков
