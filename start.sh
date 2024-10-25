@@ -14,6 +14,14 @@ if ! command -v pip &> /dev/null; then
     echo "Pip не установлен"
     exit 1
 fi
+if command -v pip &> /dev/null; then
+    PIP_COMMAND="pip"
+elif command -v pip3 &> /dev/null; then
+    PIP_COMMAND="pip3"
+else
+    echo "Python не установлен"
+    exit 1
+fi
 
 # Создание виртуального окружения
 VENV_DIR=".venv"
@@ -33,7 +41,7 @@ fi
 
 # Установка зависимостей
 echo "Установка зависимостей..."
-pip install -r requirements.txt
+$PIP_COMMAND install -r requirements.txt
 
 # Установка pre-commit хуков
 pre-commit install
