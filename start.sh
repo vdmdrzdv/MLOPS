@@ -10,16 +10,12 @@ else
     exit 1
 fi
 
-if ! command -v pip &> /dev/null; then
-    echo "Pip не установлен"
-    exit 1
-fi
 if command -v pip &> /dev/null; then
     PIP_COMMAND="pip"
 elif command -v pip3 &> /dev/null; then
     PIP_COMMAND="pip3"
 else
-    echo "Python не установлен"
+    echo "Pip не установлен"
     exit 1
 fi
 
