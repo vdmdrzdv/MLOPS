@@ -1,11 +1,19 @@
 awscli
 black
 flake8
+mypy
+pre-commit
 isort
 loguru
 mkdocs
 pip
 python-dotenv
 tqdm
+types-Pygments
+types-colorama
+types-decorator
+types-jsonschema
+types-six
+types-tqdm
 typer
 -e .
