@@ -1,3 +1,4 @@
+import os
 from pathlib import Path
 
 from dotenv import load_dotenv
@@ -5,6 +6,9 @@ from loguru import logger
 
 # Load environment variables from .env file if it exists
 load_dotenv()
+minio_url = os.getenv('HOST')
+access_key = os.getenv('USER')
+secret_key = os.getenv('PASSWORD')
 
 # Paths
 PROJ_ROOT = Path(__file__).resolve().parents[1]
