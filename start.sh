@@ -10,15 +10,6 @@ else
     exit 1
 fi
 
-if command -v pip &> /dev/null; then
-    PIP_COMMAND="pip"
-elif command -v pip3 &> /dev/null; then
-    PIP_COMMAND="pip3"
-else
-    echo "Pip не установлен"
-    exit 1
-fi
-
 # Создание виртуального окружения
 VENV_DIR=".venv"
 if [ ! -d "$VENV_DIR" ]; then
@@ -37,9 +28,13 @@ fi
 
 # Установка зависимостей
 echo "Установка зависимостей..."
-$PIP_COMMAND install -r requirements.txt
+poetry install
 
 # Установка pre-commit хуков
-pre-commit install
+poetry run pre-commit install
 
-echo "Настройка завершена! Виртуальное окружение создано, зависимости и pre-commit хуки установлены."
+cp ./.env.example ./.env
+docker-compose --env-file .env up -d
+mkdir -p data/raw data/processed
+
+echo "Настройка завершена! Виртуальное окружение создано, зависимости и pre-commit хуки установлены, контейнер с Minio поднят."
