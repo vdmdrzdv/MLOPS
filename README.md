@@ -10,10 +10,18 @@ A project for the first steps in learning mlops.
 
 ## Getting started
 
-To create an environment, install dependencies, and pre-commit hooks, run the command in bash:
+To create an environment, install dependencies and pre-commit hooks, launch minio, run the command in bash (don't forget to pre-launch the docker engine):
 
 ```bash
-bash setup.sh
+chmod +x start.sh
+./start.sh
+```
+
+To demonstrate the basic ETL process, run the command in bash:
+
+```bash
+chmod +x etl.sh
+./etl.sh
 ```
 
 ## Useful commands
@@ -60,10 +68,19 @@ mypy mlops
 ├── reports            <- Generated analysis as HTML, PDF, LaTeX, etc.
 │   └── figures        <- Generated graphics and figures to be used in reporting
 │
-├── requirements.txt   <- The requirements file for reproducing the analysis environment, e.g.
-│                         generated with `pip freeze > requirements.txt`
+├── poetry.lock        <- The requirements file                         
 │
 ├── setup.cfg          <- Configuration file for flake8
+│
+├── start.sh           <- Bash script for preparing the workspace
+│
+├── etl.sh             <- Example of ETL process
+│
+├── s3_utils           <- Source code for working with S3.    
+│    │         
+│    ├── download_file.py       <- Downloading a file from S3
+│    │
+│    └── upload_file.py         <- Uploading a file to S3       
 │
 └── mlops   <- Source code for use in this project.
     │
@@ -71,18 +88,13 @@ mypy mlops
     │
     ├── config.py               <- Store useful variables and configuration
     │
-    ├── test.py                 <- File for some test scripts
-    │
-    ├── dataset.py              <- Scripts to download or generate data
-    │
     ├── features.py             <- Code to create features for modeling
     │
-    ├── modeling
-    │   ├── __init__.py
-    │   ├── predict.py          <- Code to run model inference with trained models
-    │   └── train.py            <- Code to train models
-    │
-    └── plots.py                <- Code to create visualizations
+    └── modeling
+        ├── __init__.py
+        ├── predict.py          <- Code to run model inference with trained models
+        └── train.py            <- Code to train models
+
 ```
 
 ---

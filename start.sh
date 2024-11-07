@@ -36,5 +36,6 @@ poetry run pre-commit install
 cp ./.env.example ./.env
 docker-compose --env-file .env up -d
 mkdir -p data/raw data/processed
+$PYTHON_COMMAND s3_utils/upload_file.py --bucket_name data --file_path weight_change_dataset.csv --object_name weight_change_dataset.csv
 
-echo "Настройка завершена! Виртуальное окружение создано, зависимости и pre-commit хуки установлены, контейнер с Minio поднят."
+echo "Настройка завершена! Виртуальное окружение создано, зависимости и pre-commit хуки установлены, контейнер с Minio поднят, датасет загружен."
