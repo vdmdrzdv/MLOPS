@@ -25,7 +25,7 @@ def load_dataset(dataset_path: str) -> pd.DataFrame:
 
 
 def train_model(X_train: pd.DataFrame,
-                y_train: pd.Series[float],
+                y_train: pd.Series,
                 config: json_type) -> RandomForestRegressor:
     model = RandomForestRegressor(**config)
     model.fit(X_train, y_train)
@@ -34,8 +34,8 @@ def train_model(X_train: pd.DataFrame,
 
 def evaluate_model(model: RandomForestRegressor,
                    X_test: pd.DataFrame,
-                   y_test: pd.Series[float]) -> tuple[float, float]:
-    print(y_test)
+                   y_test: pd.Series
+                   ) -> tuple[float, float]:
     predictions = model.predict(X_test)
     mse = mean_squared_error(y_test, predictions)
     r2 = r2_score(y_test, predictions)
