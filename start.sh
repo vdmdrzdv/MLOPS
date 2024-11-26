@@ -38,4 +38,9 @@ docker-compose --env-file .env up -d
 mkdir -p data/raw data/processed
 $PYTHON_COMMAND s3_utils/upload_file.py --bucket_name data --file_path weight_change_dataset.csv --object_name weight_change_dataset.csv
 
-echo "Настройка завершена! Виртуальное окружение создано, зависимости и pre-commit хуки установлены, контейнер с Minio поднят, датасет загружен."
+sed 's/localhost/host.docker.internal/g' .env > .container_env
+docker build -t weights-prediction .
+chmod +x etl.sh
+./etl.sh
+
+echo "Подготовка к запуску эксперимента завершена! Виртуальное окружение создано, зависимости и pre-commit хуки установлены, контейнер с Minio и MLflow поднят, датасет подготовлен, образ для обучения собран."
