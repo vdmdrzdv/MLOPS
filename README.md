@@ -10,18 +10,17 @@ A project for the first steps in learning mlops.
 
 ## Getting started
 
-To create an environment, install dependencies and pre-commit hooks, launch minio, run the command in bash (don't forget to pre-launch the docker engine):
+To create an environment, install dependencies and pre-commit hooks, launch minio and MLflow, ETL process, create image for train script, run the command in bash (don't forget to pre-launch the docker engine):
 
 ```bash
 chmod +x start.sh
 ./start.sh
 ```
 
-To demonstrate the basic ETL process, run the command in bash:
+To start the experiment, run the command in bash:
 
 ```bash
-chmod +x etl.sh
-./etl.sh
+python run_experiments.py --config_folder configs
 ```
 
 ## Useful commands
@@ -68,7 +67,7 @@ mypy mlops
 ├── reports            <- Generated analysis as HTML, PDF, LaTeX, etc.
 │   └── figures        <- Generated graphics and figures to be used in reporting
 │
-├── poetry.lock        <- The requirements file                         
+├── poetry.lock        <- The requirements file
 │
 ├── setup.cfg          <- Configuration file for flake8
 │
@@ -76,11 +75,13 @@ mypy mlops
 │
 ├── etl.sh             <- Example of ETL process
 │
-├── s3_utils           <- Source code for working with S3.    
-│    │         
+├── run_experiments.py <- Run experiments
+│
+├── s3_utils           <- Source code for working with S3.
+│    │
 │    ├── download_file.py       <- Downloading a file from S3
 │    │
-│    └── upload_file.py         <- Uploading a file to S3       
+│    └── upload_file.py         <- Uploading a file to S3
 │
 └── mlops   <- Source code for use in this project.
     │
