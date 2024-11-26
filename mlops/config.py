@@ -6,13 +6,12 @@ from loguru import logger
 
 # Load environment variables from .env file if it exists
 load_dotenv()
-minio_url = os.getenv('HOST')
-access_key = os.getenv('USER')
-secret_key = os.getenv('PASSWORD')
+minio_url = os.getenv('MLFLOW_S3_ENDPOINT_URL')
+access_key = os.getenv('AWS_ACCESS_KEY_ID')
+secret_key = os.getenv('AWS_SECRET_ACCESS_KEY')
 
 # Paths
 PROJ_ROOT = Path(__file__).resolve().parents[1]
-logger.info(f"PROJ_ROOT path is: {PROJ_ROOT}")
 
 DATA_DIR = PROJ_ROOT / "data"
 RAW_DATA_DIR = DATA_DIR / "raw"
