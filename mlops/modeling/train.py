@@ -34,8 +34,7 @@ def train_model(X_train: pd.DataFrame,
 
 def evaluate_model(model: RandomForestRegressor,
                    X_test: pd.DataFrame,
-                   y_test: pd.Series
-                   ) -> tuple[float, float]:
+                   y_test: pd.Series) -> tuple[float, float]:
     predictions = model.predict(X_test)
     mse = mean_squared_error(y_test, predictions)
     r2 = r2_score(y_test, predictions)
